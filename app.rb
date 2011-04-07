@@ -5,8 +5,13 @@ require 'erb'
 Score = []
 
 get '/' do
+  "value = " << session[:value].inspect
   Score.clear
   erb :index
+end
+
+get '/:value' do
+  session[:value] = params[:value]
 end
 
 post '/cowdrop' do
